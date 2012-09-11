@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<!DOCTYPE package-info SYSTEM "http://www.simplemachines.org/xml/package-info">
+<package-info xmlns="http://www.simplemachines.org/xml/package-info">
+
+    <id>digger:gravatar_for_smf</id>
+    <name>Gravatar 4 SMF</name>
+    <type>modification</type>
+    <version>1.0</version>
+
+    <install for="2.0 - 2.0.99">
+        <readme parsebbc="true">readme/english.txt</readme>
+        <readme parsebbc="true" lang="russian">readme/russian.txt</readme>
+        <readme parsebbc="true" lang="english-utf8">readme/english-utf8.txt</readme>        
+        <readme parsebbc="true" lang="russian-utf8">readme/russian-utf8.txt</readme>
+        <require-dir name="languages" destination="$themedir"/>
+        <require-file name="Mod-Gravatar.php" destination="$sourcedir"/>
+        <code>add_settings.php</code>
+        <code>hooks.php</code>
+        <redirect url="?action=admin;area=modsettings;sa=gravatar"/>
+    </install>
+
+    <uninstall for="2.0 - 2.0.99">
+        <remove-dir name="$themedir/languages/Gravatar"/>
+        <remove-file name="$sourcedir/Mod-Gravatar.php"/>
+        <code>hooks.php</code>
+    </uninstall>
+
+</package-info>

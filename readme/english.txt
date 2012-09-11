@@ -1,0 +1,9 @@
+[center][b]Gravatar 4 SMF[/b][/center]
+
+Your Gravatar is an image that follows you from site to site appearing beside your name when you do things like comment or post on a blog. Avatars help identify your posts on blogs and web forums, so why not on any site?
+Gravatars are globally recognised avatars. Basically, you upload your avatar to the Gravatar site, and it will automatically appear on all blogs and forums that support Gravatar. Whenever you change your avatar, it will automatically change on all Gravatar-enabled sites. Gravatars associated with the users email addresses.
+
+How this mod works:
+If the "Enable gravatar" option is enabled, Gravatar will be used for all members who have not set an forum avatar. If a member have uploaded Gravatar at [url=http://gravatar.com]gravatar.com[/url], it will be used. For any member who don't have own Gravatar, unique image will be generated in a given style.
+
+This mod is licensed under CC BY-NC-ND [url]http://creativecommons.org/licenses/by-nc-nd/3.0/[/url]
