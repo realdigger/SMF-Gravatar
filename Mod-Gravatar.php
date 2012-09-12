@@ -27,7 +27,7 @@ function loadGravatarAdminJS()
                 <script type="text/javascript"><!-- // --><![CDATA[
                 function updateGravatar(){
                 var gravatarType = document.getElementById("gravatar_style").value;
-		            document.getElementById("gravatar_example").src="http://gravatar.com/avatar/00000000000000000000000000000000?d=" + gravatarType + "&s=65";
+		            document.getElementById("gravatar_example").src="http://gravatar.com/avatar/00000000000000000000000000000000?d=" + gravatarType + "&amp;s=65";
 		            };
                 // ]]></script>';
 
@@ -67,7 +67,7 @@ function addGravatarAdminSettings($return_config = false)
                 'mm' => $txt['gravatar_style_mm'],
             ),
             'subtext' => $txt['gravatar_style_help'],
-            'postinput' => '<div style="margin-top: 3px;"><img id="gravatar_example" src="http://gravatar.com/avatar/00000000000000000000000000000000?d=' . $modSettings['gravatar_style'] . '&s=65" alt="" /></div>',
+            'postinput' => '<div style="margin-top: 3px;"><img id="gravatar_example" src="http://gravatar.com/avatar/00000000000000000000000000000000?d=' . $modSettings['gravatar_style'] . '&amp;s=65" alt="" /></div>',
             'javascript' => 'onchange="updateGravatar()"',
         ),
     );
@@ -95,7 +95,7 @@ function getGravatar($email = '')
     $gravatarWidth = !empty($modSettings['avatar_max_width_external']) ? $modSettings['avatar_max_width_external'] : 65;
     $gravatarHeight = !empty($modSettings['avatar_max_height_external']) ? $modSettings['avatar_max_height_external'] : 65;
     $gravatarSize = $gravatarWidth < $gravatarHeight ? $gravatarWidth : $gravatarHeight;
-    $gravatar = 'http://gravatar.com/avatar/' . $gravatarHash . '?d=' . $gravatarStyle . '&s=' . $gravatarSize . '&r=' . $gravatarRating;
+    $gravatar = 'http://gravatar.com/avatar/' . $gravatarHash . '?d=' . $gravatarStyle . '&amp;s=' . $gravatarSize . '&amp;r=' . $gravatarRating;
 
     return $gravatar;
 }
