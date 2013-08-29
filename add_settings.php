@@ -1,10 +1,9 @@
 <?php
 /**
  * Project: Gravatar 4 SMF
- * Version: 1.0
+ * Version: 1.1
  * File: add_settings.php
  * Author: digger
- * Date: 06.09.12
  * License: CC BY-NC-ND http://creativecommons.org/licenses/by-nc-nd/3.0/
  *
  * To run this install manually please make sure you place this
@@ -25,6 +24,7 @@ if ((SMF == 'SSI') && !$user_info['is_admin'])
 $mod_settings = array(
     'gravatar_enabled' => 0,
     'gravatar_style' => 'wavatar',
+    'gravatar_style_custom' => '',
     'gravatar_rating' => 'g',
 );
 

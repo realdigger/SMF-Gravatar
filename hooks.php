@@ -1,10 +1,9 @@
 <?php
 /**
  * Project: Gravatar 4 SMF
- * Version: 1.0
+ * Version: 1.1
  * File: hooks.php
  * Author: digger
- * Date: 06.09.12
  * License: CC BY-NC-ND http://creativecommons.org/licenses/by-nc-nd/3.0/
  *
  * To run this install manually please make sure you place this

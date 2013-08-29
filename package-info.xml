@@ -5,15 +5,15 @@
     <id>digger:gravatar_for_smf</id>
     <name>Gravatar 4 SMF</name>
     <type>modification</type>
-    <version>1.0</version>
+    <version>1.1</version>
 
     <install for="2.0 - 2.0.99">
         <readme parsebbc="true">readme/english.txt</readme>
         <readme parsebbc="true" lang="russian">readme/russian.txt</readme>
-        <readme parsebbc="true" lang="english-utf8">readme/english-utf8.txt</readme>        
+        <readme parsebbc="true" lang="english-utf8">readme/english-utf8.txt</readme>
         <readme parsebbc="true" lang="russian-utf8">readme/russian-utf8.txt</readme>
         <require-dir name="languages" destination="$themedir"/>
-        <require-file name="Mod-Gravatar.php" destination="$sourcedir"/>
+        <require-file name="Sources/Mod-Gravatar.php" destination="$sourcedir"/>
         <code>add_settings.php</code>
         <code>hooks.php</code>
         <redirect url="?action=admin;area=modsettings;sa=gravatar"/>
