@@ -4,7 +4,7 @@
  * Version: 1.1
  * File: hooks.php
  * Author: digger
- * License: CC BY-NC-ND http://creativecommons.org/licenses/by-nc-nd/3.0/
+ * License: The MIT License (MIT)
  *
  * To run this install manually please make sure you place this
  * in the same place and SSI.php and index.php

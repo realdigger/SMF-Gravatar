@@ -6,4 +6,4 @@ Gravatars are globally recognised avatars. Basically, you upload your avatar to 
 How this mod works:
 If the "Enable gravatar" option is enabled, Gravatar will be used for all members who have not set an forum avatar. If a member have uploaded Gravatar at [url=http://gravatar.com]gravatar.com[/url], it will be used. For any member who don't have own Gravatar, unique image will be generated in a given style.
 
-This mod is licensed under CC BY-NC-ND [url]http://creativecommons.org/licenses/by-nc-nd/3.0/[/url]
+This mod is licensed under The MIT License (MIT)

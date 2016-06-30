@@ -4,7 +4,7 @@
  * Version: 1.1
  * File: add_settings.php
  * Author: digger
- * License: CC BY-NC-ND http://creativecommons.org/licenses/by-nc-nd/3.0/
+ * License: The MIT License (MIT)
  *
  * To run this install manually please make sure you place this
  * in the same place and SSI.php and index.php
@@ -24,7 +24,7 @@ if ((SMF == 'SSI') && !$user_info['is_admin'])
 $mod_settings = array(
     'gravatar_enabled' => 0,
     'gravatar_style' => 'wavatar',
-    'gravatar_style_custom' => '',
+    'gravatar_style_custom_url' => '',
     'gravatar_rating' => 'g',
 );
 

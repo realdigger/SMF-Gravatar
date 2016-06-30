@@ -4,8 +4,7 @@
  * Version: 1.1
  * File: Mod-Gravatar.php
  * Author: digger
- * Date: 06.09.12
- * License: CC BY-NC-ND http://creativecommons.org/licenses/by-nc-nd/3.0/
+ * License: The MIT License (MIT)
  */
 
 if (!defined('SMF'))
@@ -125,5 +124,5 @@ function addGravatarCopyright() {
     global $context;
 
     if ($context['current_action'] == 'credits')
-        $context['copyrights']['mods'][] = 'Gravatar 4 SMF &copy; 2012-2013, digger';
+        $context['copyrights']['mods'][] = '<a href="http://mysmf.ru/mods/gravatar-4-smf" target="_blank">Gravatar 4 SMF</a> &copy; 2010-2016, digger';
 }

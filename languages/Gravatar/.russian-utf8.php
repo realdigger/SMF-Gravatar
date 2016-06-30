@@ -3,7 +3,7 @@
  * Project: Gravatar 4 SMF
  * File: .russian-utf8.php
  * Author: digger
- * License: CC BY-NC-ND http://creativecommons.org/licenses/by-nc-nd/3.0/
+ * License: The MIT License (MIT)
  */
 
 $txt['gravatar_admin_menu'] = 'Граватар';
