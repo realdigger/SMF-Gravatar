@@ -12,15 +12,15 @@
         <readme parsebbc="true" lang="russian">readme/russian.txt</readme>
         <readme parsebbc="true" lang="english-utf8">readme/english-utf8.txt</readme>
         <readme parsebbc="true" lang="russian-utf8">readme/russian-utf8.txt</readme>
-        <require-dir name="languages" destination="$themedir"/>
-        <require-file name="Sources/Mod-Gravatar.php" destination="$sourcedir"/>
+        <require-dir name="Themes" destination="$boarddir"/>
+        <require-dir name="Sources" destination="$boarddir"/>
         <code>add_settings.php</code>
         <code>hooks.php</code>
         <redirect url="?action=admin;area=modsettings;sa=gravatar"/>
     </install>
 
     <uninstall for="2.0 - 2.0.99">
-        <remove-dir name="$themedir/languages/Gravatar"/>
+        <remove-dir name="$languagedir//Gravatar"/>
         <remove-file name="$sourcedir/Mod-Gravatar.php"/>
         <code>hooks.php</code>
     </uninstall>
