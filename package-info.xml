@@ -5,7 +5,7 @@
     <id>digger:gravatar_for_smf</id>
     <name>Gravatar 4 SMF</name>
     <type>modification</type>
-    <version>1.1</version>
+    <version>1.2</version>
 
     <install for="2.0 - 2.0.99">
         <readme parsebbc="true">readme/english.txt</readme>

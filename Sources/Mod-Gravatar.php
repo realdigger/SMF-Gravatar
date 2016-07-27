@@ -65,7 +65,7 @@ function addGravatarAdminSettings($return_config = false) {
                 'custom' => $txt['gravatar_style_custom'],
             ),
             'subtext' => $txt['gravatar_style_help'],
-            'postinput' => '<div style="margin-top: 3px;"><img id="gravatar_example" src="http://gravatar.com/avatar/00000000000000000000000000000000?d=' .
+            'postinput' => '<div style="margin-top: 3px;"><img id="gravatar_example" src="//gravatar.com/avatar/00000000000000000000000000000000?d=' .
             (($modSettings['gravatar_style'] == 'custom' && !empty($modSettings['gravatar_style_custom_url'])) ? urlencode($modSettings['gravatar_style_custom_url']) : ((!empty($modSettings['gravatar_style']) && $modSettings['gravatar_style'] != 'custom') ? $modSettings['gravatar_style'] : ''))
             . '&amp;s=65" alt="" /></div>',
             'javascript' => 'onchange="updateGravatar()"',
@@ -95,7 +95,7 @@ function getGravatar($email = '') {
     $gravatarWidth = !empty($modSettings['avatar_max_width_external']) ? $modSettings['avatar_max_width_external'] : 65;
     $gravatarHeight = !empty($modSettings['avatar_max_height_external']) ? $modSettings['avatar_max_height_external'] : 65;
     $gravatarSize = $gravatarWidth < $gravatarHeight ? $gravatarWidth : $gravatarHeight;
-    $gravatar = 'http://gravatar.com/avatar/' . $gravatarHash . '?d=' . $gravatarStyle . '&amp;s=' . $gravatarSize . '&amp;r=' . $gravatarRating; // TODO: https
+    $gravatar = '//gravatar.com/avatar/' . $gravatarHash . '?d=' . $gravatarStyle . '&amp;s=' . $gravatarSize . '&amp;r=' . $gravatarRating;
 
     return $gravatar;
 }
