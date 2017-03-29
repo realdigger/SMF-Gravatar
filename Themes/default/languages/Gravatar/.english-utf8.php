@@ -8,6 +8,8 @@
 
 $txt['gravatar_admin_menu'] = 'Gravatar';
 $txt['gravatar_enabled'] = 'Enable gravatar';
+$txt['gravatar_forced'] = 'Force Gravatars to be used instead of normal avatars';
+$txt['gravatar_forced_help'] = 'If option is not selected, gravatars will be used only for members without avatars';
 $txt['gravatar_rating'] = 'Image maturity filter';
 $txt['gravatar_rating_g'] = 'G';
 $txt['gravatar_rating_pg'] = 'PG';

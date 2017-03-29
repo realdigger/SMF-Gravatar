@@ -45,6 +45,7 @@ function addGravatarAdminSettings($return_config = false) {
 
     $config_vars = array(
         array('check', 'gravatar_enabled'),
+        array('check', 'gravatar_forced', 'subtext' => $txt['gravatar_forced_help'],),
         array('select', 'gravatar_rating',
             array(
                 'g' => $txt['gravatar_rating_g'],
@@ -95,7 +96,7 @@ function getGravatar($email = '') {
     $gravatarWidth = !empty($modSettings['avatar_max_width_external']) ? $modSettings['avatar_max_width_external'] : 65;
     $gravatarHeight = !empty($modSettings['avatar_max_height_external']) ? $modSettings['avatar_max_height_external'] : 65;
     $gravatarSize = $gravatarWidth < $gravatarHeight ? $gravatarWidth : $gravatarHeight;
-    $gravatar = '//gravatar.com/avatar/' . $gravatarHash . '?d=' . $gravatarStyle . '&amp;s=' . $gravatarSize . '&amp;r=' . $gravatarRating;
+    $gravatar = 'http://gravatar.com/avatar/' . $gravatarHash . '?d=' . $gravatarStyle . '&amp;s=' . $gravatarSize . '&amp;r=' . $gravatarRating;
 
     return $gravatar;
 }
@@ -103,7 +104,7 @@ function getGravatar($email = '') {
 function addGravatarForCurrentUser() {
     global $modSettings, $user_info;
 
-    if (!empty($modSettings['gravatar_enabled']) && empty($user_info['avatar']['url']) && empty($user_info['avatar']['filename'])) {
+    if (!empty($modSettings['gravatar_enabled']) && ((empty($user_info['avatar']['url']) && empty($user_info['avatar']['filename'])) || !empty($modSettings['gravatar_forced']))) {
         $user_info['avatar']['url'] = getGravatar($user_info['email']);
     } else return false;
 }
@@ -114,7 +115,7 @@ function addGravatarsForUsers() {
     if (empty($modSettings['gravatar_enabled']) || empty($user_profile)) return false;
 
     foreach (array_keys($user_profile) as $user_id) {
-        if (empty($user_profile[$user_id]['avatar']) && empty($user_profile[$user_id]['filename']) && !empty($user_profile[$user_id]['email_address'])) {
+        if (((empty($user_profile[$user_id]['avatar']) && empty($user_profile[$user_id]['filename'])) || !empty($modSettings['gravatar_forced'])) && !empty($user_profile[$user_id]['email_address'])) {
             $user_profile[$user_id]['avatar'] = getGravatar($user_profile[$user_id]['email_address']);
         }
     }

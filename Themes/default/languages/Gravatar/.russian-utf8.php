@@ -8,6 +8,8 @@
 
 $txt['gravatar_admin_menu'] = 'Граватар';
 $txt['gravatar_enabled'] = 'Включить граватары';
+$txt['gravatar_forced'] = 'Использовать граватары вместо аватаров для всех пользователей';
+$txt['gravatar_forced_help'] = 'Если не выбрано, граватары будут использованы только для пользователей не установивших себе аватары';
 $txt['gravatar_rating'] = 'Допустимый рейтинг изображений';
 $txt['gravatar_rating_g'] = 'G';
 $txt['gravatar_rating_pg'] = 'PG';

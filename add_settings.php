@@ -23,6 +23,7 @@ if ((SMF == 'SSI') && !$user_info['is_admin'])
 // List settings here in the format: setting_key => default_value.  Escape any "s. (" => \")
 $mod_settings = array(
     'gravatar_enabled' => 0,
+    'gravatar_forced' => 0,
     'gravatar_style' => 'wavatar',
     'gravatar_style_custom_url' => '',
     'gravatar_rating' => 'g',
