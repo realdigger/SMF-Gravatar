@@ -1,24 +1,47 @@
 <?php
 /**
  * Project: Gravatar 4 SMF
- * Version: 1.1
+ * Version: 1.3
  * File: Mod-Gravatar.php
  * Author: digger
  * License: The MIT License (MIT)
  */
 
-if (!defined('SMF'))
+if (!defined('SMF')) {
     die('Hacking attempt...');
+}
 
-function addGravatarAdminArea(&$admin_areas) {
+/**
+ * Load all needed hooks
+ */
+function loadGravatarHooks()
+{
+    add_integration_function('integrate_admin_areas', 'addGravatarAdminArea', false);
+    add_integration_function('integrate_modify_modifications', 'addGravatarAdminAction', false);
+    add_integration_function('integrate_load_theme', 'addGravatarForCurrentUser', false);
+    add_integration_function('integrate_menu_buttons', 'addGravatarForCurrentUserProfile', false);
+    add_integration_function('integrate_menu_buttons', 'addGravatarsForUsers', false);
+    add_integration_function('integrate_menu_buttons', 'addGravatarCopyright', false);
+}
+
+/**
+ * Add mod admin area
+ * @param $admin_areas
+ */
+function addGravatarAdminArea(&$admin_areas)
+{
     global $txt;
     loadLanguage('Gravatar/');
 
     $admin_areas['config']['areas']['modsettings']['subsections']['gravatar'] = array($txt['gravatar_admin_menu']);
 }
 
-function loadGravatarAdminJS() {
-    global $context, $modSettings;
+/**
+ * Add mod admin area JS
+ */
+function loadGravatarAdminJS()
+{
+    global $context;
 
     $context['insert_after_template'] .= "
                 <script type='text/javascript'><!-- // --><![CDATA[
@@ -31,11 +54,22 @@ function loadGravatarAdminJS() {
 
 }
 
-function addGravatarAdminAction(&$subActions) {
+/**
+ * Add mod admin action
+ * @param $subActions
+ */
+function addGravatarAdminAction(&$subActions)
+{
     $subActions['gravatar'] = 'addGravatarAdminSettings';
 }
 
-function addGravatarAdminSettings($return_config = false) {
+/**
+ * Add mod settings area
+ * @param bool $return_config
+ * @return array
+ */
+function addGravatarAdminSettings($return_config = false)
+{
     global $txt, $scripturl, $context, $modSettings;
     loadLanguage('Gravatar/');
     loadGravatarAdminJS();
@@ -46,7 +80,9 @@ function addGravatarAdminSettings($return_config = false) {
     $config_vars = array(
         array('check', 'gravatar_enabled'),
         array('check', 'gravatar_forced', 'subtext' => $txt['gravatar_forced_help'],),
-        array('select', 'gravatar_rating',
+        array(
+            'select',
+            'gravatar_rating',
             array(
                 'g' => $txt['gravatar_rating_g'],
                 'pg' => $txt['gravatar_rating_pg'],
@@ -55,7 +91,9 @@ function addGravatarAdminSettings($return_config = false) {
             ),
             'subtext' => $txt['gravatar_rating_help'],
         ),
-        array('select', 'gravatar_style',
+        array(
+            'select',
+            'gravatar_style',
             array(
                 'wavatar' => $txt['gravatar_style_wavatar'],
                 'identicon' => $txt['gravatar_style_identicon'],
@@ -67,15 +105,16 @@ function addGravatarAdminSettings($return_config = false) {
             ),
             'subtext' => $txt['gravatar_style_help'],
             'postinput' => '<div style="margin-top: 3px;"><img id="gravatar_example" src="//gravatar.com/avatar/00000000000000000000000000000000?d=' .
-            (($modSettings['gravatar_style'] == 'custom' && !empty($modSettings['gravatar_style_custom_url'])) ? urlencode($modSettings['gravatar_style_custom_url']) : ((!empty($modSettings['gravatar_style']) && $modSettings['gravatar_style'] != 'custom') ? $modSettings['gravatar_style'] : ''))
-            . '&amp;s=65" alt="" /></div>',
+                (($modSettings['gravatar_style'] == 'custom' && !empty($modSettings['gravatar_style_custom_url'])) ? urlencode($modSettings['gravatar_style_custom_url']) : ((!empty($modSettings['gravatar_style']) && $modSettings['gravatar_style'] != 'custom') ? $modSettings['gravatar_style'] : ''))
+                . '&amp;s=65" alt="" /></div>',
             'javascript' => 'onchange="updateGravatar()"',
         ),
         array('large_text', 'gravatar_style_custom_url', 'subtext' => $txt['gravatar_style_custom_url_help']),
     );
 
-    if ($return_config)
+    if ($return_config) {
         return $config_vars;
+    }
 
     if (isset($_GET['save'])) {
         checkSession();
@@ -87,7 +126,14 @@ function addGravatarAdminSettings($return_config = false) {
     prepareDBSettingContext($config_vars);
 }
 
-function getGravatar($email = '') {
+/**
+ * Get gravatar by email
+ * @param string $email
+ * @param bool $image swe need img tag
+ * @return string gravatar link or image
+ */
+function getGravatar($email = '', $image = false)
+{
     global $modSettings;
 
     $gravatarHash = md5(strtolower($email));
@@ -98,21 +144,54 @@ function getGravatar($email = '') {
     $gravatarSize = $gravatarWidth < $gravatarHeight ? $gravatarWidth : $gravatarHeight;
     $gravatar = 'http://gravatar.com/avatar/' . $gravatarHash . '?d=' . $gravatarStyle . '&amp;s=' . $gravatarSize . '&amp;r=' . $gravatarRating;
 
+    if ($image) {
+        $gravatar = '<img class="avatar" src="' . $gravatar . '" alt="" />';
+    }
+
     return $gravatar;
 }
 
-function addGravatarForCurrentUser() {
+/**
+ * Add gravatar to forum header for current member
+ * @return bool
+ */
+function addGravatarForCurrentUser()
+{
     global $modSettings, $user_info;
 
     if (!empty($modSettings['gravatar_enabled']) && ((empty($user_info['avatar']['url']) && empty($user_info['avatar']['filename'])) || !empty($modSettings['gravatar_forced']))) {
         $user_info['avatar']['url'] = getGravatar($user_info['email']);
-    } else return false;
+    } else {
+        return false;
+    }
 }
 
-function addGravatarsForUsers() {
+/**
+ * Add gravatar to current member profile
+ * @return bool
+ */
+function addGravatarForCurrentUserProfile()
+{
+    global $modSettings, $context;
+
+    if (!empty($modSettings['gravatar_enabled']) && !empty($context['member']) && (empty($context['member']['avatar']['image']) || !empty($modSettings['gravatar_forced']))) {
+        $context['member']['avatar']['image'] = getGravatar($context['member']['email'], true);
+    } else {
+        return false;
+    }
+}
+
+/**
+ * Add gravatars for this topic page members
+ * @return bool
+ */
+function addGravatarsForUsers()
+{
     global $modSettings, $user_profile;
 
-    if (empty($modSettings['gravatar_enabled']) || empty($user_profile)) return false;
+    if (empty($modSettings['gravatar_enabled']) || empty($user_profile)) {
+        return false;
+    }
 
     foreach (array_keys($user_profile) as $user_id) {
         if (((empty($user_profile[$user_id]['avatar']) && empty($user_profile[$user_id]['filename'])) || !empty($modSettings['gravatar_forced'])) && !empty($user_profile[$user_id]['email_address'])) {
@@ -121,9 +200,14 @@ function addGravatarsForUsers() {
     }
 }
 
-function addGravatarCopyright() {
+/**
+ * Add mod copyright to the forum credits page
+ */
+function addGravatarCopyright()
+{
     global $context;
 
-    if ($context['current_action'] == 'credits')
-        $context['copyrights']['mods'][] = '<a href="http://mysmf.ru/mods/gravatar-4-smf" target="_blank">Gravatar 4 SMF</a> &copy; 2010-2016, digger';
+    if ($context['current_action'] == 'credits') {
+        $context['copyrights']['mods'][] = '<a href="http://mysmf.ru/mods/gravatar-4-smf" target="_blank">Gravatar 4 SMF</a> &copy; 2010-2017, digger';
+    }
 }
