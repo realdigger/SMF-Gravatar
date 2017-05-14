@@ -10,9 +10,21 @@ Gravatars are globally recognised avatars. Basically, you upload your avatar to 
 How this mod works:
 If the "Enable gravatar" option is enabled, Gravatar will be used for all members who have not set an forum avatar. If a member have uploaded Gravatar at http://gravatar.com , it will be used. For any member who don't have own Gravatar, unique image will be generated in a given style.
 
+![gravatar1 en](https://cloud.githubusercontent.com/assets/1187218/26038566/80dcfca8-391c-11e7-9850-2d9c4657c775.png)
+
+![gravatar2 en](https://cloud.githubusercontent.com/assets/1187218/26038570/80dfb696-391c-11e7-95ed-610197f321cd.png)
+
+![gravatar3 en](https://cloud.githubusercontent.com/assets/1187218/26038571/80e1c6e8-391c-11e7-9273-640c35e5b418.png)
+
 ## Описание
 Ваш Граватар - это изображение, которое следует за вами от сайта к сайту и появляется рядом с вашим именем, когда вы делаете такие вещи, как оставляете комментарий или сообщение в блоге или на форуме. Аватары помогают идентифицировать свои сообщения в блогах и на форумах, так почему бы им не быть на каждом сайте?
 Граватары - это глобально используемые аватары. Вы просто загружаете свой аватар на сайт Gravatar.com, и он будет автоматически появляться на всех блогах и форумах, которые поддерживают Граватары. Всякий раз, когда вы изменяете ваш Граватар, он автоматически изменяется на всех сайтах с поддержкой Граватаров. Граватары привязаны к пользователям посредством адресов электронной почты.
 
 Как этот мод работает:
 Если активирована опция "Включить граватары", Граватары будет использоваться для всех тех пользователей, кто не установил себе аватар на форуме. Если у пользователя есть загруженный на http://gravatar.com аватар, будет использоваться он. Для остальных пользователей, которые не имеют собственных Граватаров, будут сгенерированы уникальные изображения в соответствии с выбранным в настройках стилем.
+
+![gravatar1 ru](https://cloud.githubusercontent.com/assets/1187218/26038568/80de9fa4-391c-11e7-95af-7c5f2880683c.png)
+
+![gravatar2 ru](https://cloud.githubusercontent.com/assets/1187218/26038569/80defb3e-391c-11e7-82f7-088e966c67fe.png)
+
+![gravatar3 ru](https://cloud.githubusercontent.com/assets/1187218/26038567/80de4fa4-391c-11e7-99d2-da587a77648f.png)
