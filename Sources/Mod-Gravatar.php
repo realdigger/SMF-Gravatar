@@ -76,6 +76,7 @@ function addGravatarAdminSettings($return_config = false)
 
     $context['page_title'] = $context['settings_title'] = $txt['gravatar_admin_menu'];
     $context['post_url'] = $scripturl . '?action=admin;area=modsettings;save;sa=gravatar';
+    $context['settings_message'] = $txt['gravatar_description'];
 
     $config_vars = array(
         array('check', 'gravatar_enabled'),

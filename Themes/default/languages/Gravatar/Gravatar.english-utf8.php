@@ -6,6 +6,13 @@
  * License: The MIT License (MIT)
  */
 
+$txt['gravatar_description'] = 'Your Gravatar is an image that follows you from site to site appearing beside your name when you do things like comment or post on a blog. Avatars help identify your posts on blogs and web forums, so why not on any site?
+Gravatars are globally recognised avatars. Basically, you upload your avatar to the Gravatar site, and it will automatically appear on all blogs and forums that support Gravatar. Whenever you change your avatar, it will automatically change on all Gravatar-enabled sites. Gravatars associated with the users email addresses.<br><br>
+
+How this mod works:<br>
+If the "Enable gravatar" option is enabled, Gravatar will be used for all members who have not set an forum avatar. If a member have uploaded Gravatar at http://gravatar.com , it will be used. For any member who don\'t have own Gravatar, unique image will be generated in a given style.<br>  
+You can use this mod for setup custom default avatar.<br>
+Also you can force Gravatars to be used instead of regular avatars.';
 $txt['gravatar_admin_menu'] = 'Gravatar';
 $txt['gravatar_enabled'] = 'Enable gravatar';
 $txt['gravatar_forced'] = 'Force Gravatars to be used instead of regular avatars';
