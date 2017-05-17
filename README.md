@@ -14,6 +14,7 @@ Gravatars are globally recognised avatars. Basically, you upload your avatar to 
 
 How this mod works:
 If the "Enable gravatar" option is enabled, Gravatar will be used for all members who have not set an forum avatar. If a member have uploaded Gravatar at http://gravatar.com , it will be used. For any member who don't have own Gravatar, unique image will be generated in a given style.  
+You can use this mod for setup custom default avatar.  
 Also you can force Gravatars to be used instead of regular avatars.
 
 ![gravatar1 en](https://cloud.githubusercontent.com/assets/1187218/26038566/80dcfca8-391c-11e7-9850-2d9c4657c775.png)
@@ -32,6 +33,7 @@ Also you can force Gravatars to be used instead of regular avatars.
 
 Как этот мод работает:
 Если активирована опция "Включить граватары", Граватары будет использоваться для всех тех пользователей, кто не установил себе аватар на форуме. Если у пользователя есть загруженный на http://gravatar.com аватар, будет использоваться он. Для остальных пользователей, которые не имеют собственных Граватаров, будут сгенерированы уникальные изображения в соответствии с выбранным в настройках стилем.  
+Мод можно использовать для задания произвольного аватара по умолчанию.  
 Также, можно принудительно включить генерацию граватаров для всех пользователей, независимо от того, есть у них аватары или нет.
 
 ![gravatar1 ru](https://cloud.githubusercontent.com/assets/1187218/26038568/80de9fa4-391c-11e7-95af-7c5f2880683c.png)
