@@ -134,7 +134,10 @@ function addGravatarAdminSettings($return_config = false)
  */
 function getGravatar($email = '', $image = false)
 {
-    global $modSettings;
+    global $smcFunc, $modSettings, $forum_version;
+
+    // We can enable https avatars only for SMF 2.0.14 and above.
+    $forum_version_int = (int)str_replace('.', '', trim($smcFunc['substr']($forum_version, 3)));
 
     $gravatarHash = md5(strtolower($email));
     $gravatarStyle = ($modSettings['gravatar_style'] == 'custom' && !empty($modSettings['gravatar_style_custom_url'])) ? urlencode($modSettings['gravatar_style_custom_url']) : ((!empty($modSettings['gravatar_style']) && $modSettings['gravatar_style'] != 'custom') ? $modSettings['gravatar_style'] : '');
@@ -142,7 +145,7 @@ function getGravatar($email = '', $image = false)
     $gravatarWidth = !empty($modSettings['avatar_max_width_external']) ? $modSettings['avatar_max_width_external'] : 65;
     $gravatarHeight = !empty($modSettings['avatar_max_height_external']) ? $modSettings['avatar_max_height_external'] : 65;
     $gravatarSize = $gravatarWidth < $gravatarHeight ? $gravatarWidth : $gravatarHeight;
-    $gravatar = 'http://gravatar.com/avatar/' . $gravatarHash . '?d=' . $gravatarStyle . '&amp;s=' . $gravatarSize . '&amp;r=' . $gravatarRating;
+    $gravatar = ($forum_version_int >= 2014 ? 'https' : 'http') . '://gravatar.com/avatar/' . $gravatarHash . '?d=' . $gravatarStyle . '&amp;s=' . $gravatarSize . '&amp;r=' . $gravatarRating;
 
     if ($image) {
         $gravatar = '<img class="avatar" src="' . $gravatar . '" alt="" />';
