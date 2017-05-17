@@ -1,14 +1,14 @@
 <?php
 /**
  * Project: Gravatar 4 SMF
- * File: .english-utf8.php
+ * File: .english.php
  * Author: digger
  * License: The MIT License (MIT)
  */
 
 $txt['gravatar_admin_menu'] = 'Gravatar';
 $txt['gravatar_enabled'] = 'Enable gravatar';
-$txt['gravatar_forced'] = 'Force Gravatars to be used instead of normal avatars';
+$txt['gravatar_forced'] = 'Force Gravatars to be used instead of regular avatars';
 $txt['gravatar_forced_help'] = 'If option is not selected, gravatars will be used only for members without avatars';
 $txt['gravatar_rating'] = 'Image maturity filter';
 $txt['gravatar_rating_g'] = 'G';
@@ -43,3 +43,4 @@ $txt['gravatar_style_custom_url_help'] = '
 <br />MUST be accessible via HTTP or HTTPS on the standard ports, 80 and 443, respectively.
 <br />MUST have a recognizable image extension (jpg, jpeg, gif, png).
 <br />MUST NOT include a querystring (if it does, it will be ignored).';
+

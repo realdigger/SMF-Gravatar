@@ -31,7 +31,7 @@ function loadGravatarHooks()
 function addGravatarAdminArea(&$admin_areas)
 {
     global $txt;
-    loadLanguage('Gravatar/');
+    loadLanguage('Gravatar/Gravatar');
 
     $admin_areas['config']['areas']['modsettings']['subsections']['gravatar'] = array($txt['gravatar_admin_menu']);
 }
@@ -71,7 +71,7 @@ function addGravatarAdminAction(&$subActions)
 function addGravatarAdminSettings($return_config = false)
 {
     global $txt, $scripturl, $context, $modSettings;
-    loadLanguage('Gravatar/');
+    loadLanguage('Gravatar/Gravatar');
     loadGravatarAdminJS();
 
     $context['page_title'] = $context['settings_title'] = $txt['gravatar_admin_menu'];
@@ -208,6 +208,6 @@ function addGravatarCopyright()
     global $context;
 
     if ($context['current_action'] == 'credits') {
-        $context['copyrights']['mods'][] = '<a href="http://mysmf.ru/mods/gravatar-4-smf" target="_blank">Gravatar 4 SMF</a> &copy; 2010-2017, digger';
+        $context['copyrights']['mods'][] = '<a href="http://mysmf.net/mods/gravatar-4-smf" target="_blank">Gravatar 4 SMF</a> &copy; 2010-2017, digger';
     }
 }
