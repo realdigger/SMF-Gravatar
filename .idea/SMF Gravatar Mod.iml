@@ -12,10 +12,10 @@
     <orderEntry type="module-library">
       <library name="PHP">
         <CLASSES>
-          <root url="file://$MODULE_DIR$/../Core/smf_2.0" />
+          <root url="file://$MODULE_DIR$/../../Core/smf_2.0" />
         </CLASSES>
         <SOURCES>
-          <root url="file://$MODULE_DIR$/../Core/smf_2.0" />
+          <root url="file://$MODULE_DIR$/../../Core/smf_2.0" />
         </SOURCES>
       </library>
     </orderEntry>
