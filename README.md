@@ -1,10 +1,17 @@
+[![GitHub release](https://img.shields.io/github/release/realdigger/SMF-Gravatar.svg)](https://github.com/realdigger/SMF-Gravatar/releases)
 [![Build Status](https://travis-ci.org/realdigger/SMF-Gravatar.svg?branch=master)](https://travis-ci.org/realdigger/SMF-Gravatar)
-# Gravatar 4 SMF mod
+[![SMF](https://img.shields.io/badge/SMF-2.0-blue.svg?style==flat)](https://simplemachines.org)
+[![Hooks](https://img.shields.io/badge/hooks%20only-✓-blue.svg?style==flat)]()
+[![license](https://img.shields.io/github/license/realdigger/SMF-Gravatar.svg)]()
+# Gravatar 4 SMF mod [![Tweet](https://img.shields.io/twitter/url/http/shields.io.svg?style=social)](https://twitter.com/intent/tweet?text=SMF%20Gravatar&url=https://github.com/realdigger/SMF-Gravatar&hashtags=smf,gravatar)
 * **Author:** digger [https://mysmf.net](https://mysmf.net)
 * **License:** The MIT License (MIT) https://opensource.org/licenses/MIT
 * **Compatible with:** SMF 2.0
 * **Hooks only:** Yes
 * **Languages:** English, Russian
+* **Mod page:** https://mysmf.net/mods/gravatar-4-smf
+* **SMF Mods Site page:** https://custom.simplemachines.org/mods/index.php?mod=3456
+* **GitHub page:** https://github.com/realdigger/SMF-Gravatar
 
 ## Installation  
 Download and install latest release tar.gz file from [releases page](https://github.com/realdigger/SMF-Gravatar/releases).
