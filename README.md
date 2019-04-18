@@ -1,6 +1,6 @@
 [![Build Status](https://travis-ci.org/realdigger/SMF-Gravatar.svg?branch=master)](https://travis-ci.org/realdigger/SMF-Gravatar)
 # Gravatar 4 SMF mod
-* **Author:** digger [http://mysmf.net](http://mysmf.net)
+* **Author:** digger [https://mysmf.net](https://mysmf.net)
 * **License:** The MIT License (MIT) https://opensource.org/licenses/MIT
 * **Compatible with:** SMF 2.0
 * **Hooks only:** Yes
@@ -14,9 +14,16 @@ Your Gravatar is an image that follows you from site to site appearing beside yo
 Gravatars are globally recognised avatars. Basically, you upload your avatar to the Gravatar site, and it will automatically appear on all blogs and forums that support Gravatar. Whenever you change your avatar, it will automatically change on all Gravatar-enabled sites. Gravatars associated with the users email addresses.
 
 How this mod works:
-If the "Enable gravatar" option is enabled, Gravatar will be used for all members who have not set an forum avatar. If a member have uploaded Gravatar at http://gravatar.com , it will be used. For any member who don't have own Gravatar, unique image will be generated in a given style.  
+If the "Enable gravatar" option is enabled, Gravatar will be used for all members who have not set an forum avatar. If a member have uploaded Gravatar at http://gravatar.com , it will be used. For any member who don't have own Gravatar, unique image will be generated a themed image that is unique to member's email address.  
 You can use this mod for setup custom default avatar.  
 Also you can force Gravatars to be used instead of regular avatars.
+
+![1](https://www.gravatar.com/avatar/00000000000000000000000000000000?d=mp&amp;f=y)
+![2](https://www.gravatar.com/avatar/00000000000000000000000000000000?d=identicon&amp;f=y)
+![3](https://www.gravatar.com/avatar/00000000000000000000000000000000?d=monsterid&amp;f=y)
+![4](https://www.gravatar.com/avatar/00000000000000000000000000000000?d=wavatar&amp;f=y)
+![5](https://www.gravatar.com/avatar/00000000000000000000000000000000?d=retro&amp;f=y)
+![6](https://www.gravatar.com/avatar/00000000000000000000000000000000?d=robohash&amp;f=y)
 
 ![gravatar1 en](https://cloud.githubusercontent.com/assets/1187218/26038566/80dcfca8-391c-11e7-9850-2d9c4657c775.png)
 

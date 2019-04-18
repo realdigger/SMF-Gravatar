@@ -33,6 +33,7 @@ $txt['gravatar_style_identicon'] = 'identicon';
 $txt['gravatar_style_monsterid'] = 'monsterid';
 $txt['gravatar_style_retro'] = 'retro';
 $txt['gravatar_style_mm'] = 'mistery man';
+$txt['gravatar_style_robohash'] = 'robot';
 $txt['gravatar_style_blank'] = 'blank';
 $txt['gravatar_style_custom'] = 'custom';
 $txt['gravatar_style_help'] = '<br />If a member already have own gravatar at <a href="http://gravatar.com" target="_blank">gravatar.com</a>, it will be used. For members who have not set an avatar, unique images will be generated in a given style. Gravatar size will match the settings for the external forum avatars.

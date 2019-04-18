@@ -101,6 +101,7 @@ function addGravatarAdminSettings($return_config = false)
                 'monsterid' => $txt['gravatar_style_monsterid'],
                 'retro' => $txt['gravatar_style_retro'],
                 'mm' => $txt['gravatar_style_mm'],
+                'robohash' => $txt['gravatar_style_robohash'],
                 'blank' => $txt['gravatar_style_blank'],
                 'custom' => $txt['gravatar_style_custom'],
             ),
@@ -212,6 +213,6 @@ function addGravatarCopyright()
     global $context;
 
     if ($context['current_action'] == 'credits') {
-        $context['copyrights']['mods'][] = '<a href="http://mysmf.net/mods/gravatar-4-smf" target="_blank">Gravatar 4 SMF</a> &copy; 2010-2017, digger';
+        $context['copyrights']['mods'][] = '<a href="https://mysmf.net/mods/gravatar-4-smf" target="_blank">Gravatar 4 SMF</a> &copy; 2010-2019, digger';
     }
 }
