@@ -8,7 +8,7 @@
 * **License:** The MIT License (MIT) https://opensource.org/licenses/MIT
 * **Compatible with:** SMF 2.0
 * **Hooks only:** Yes
-* **Languages:** English, Russian
+* **Languages:** English, Russian, Spanish
 * **Mod page:** https://mysmf.net/mods/gravatar-4-smf
 * **SMF Mods Site page:** https://custom.simplemachines.org/mods/index.php?mod=3456
 * **GitHub page:** https://github.com/realdigger/SMF-Gravatar
