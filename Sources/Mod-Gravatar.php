@@ -213,6 +213,6 @@ function addGravatarCopyright()
     global $context;
 
     if ($context['current_action'] == 'credits') {
-        $context['copyrights']['mods'][] = '<a href="https://mysmf.net/mods/gravatar-4-smf" target="_blank">Gravatar 4 SMF</a> &copy; 2010-2019, digger';
+        $context['copyrights']['mods'][] = '<a href="https://mysmf.net/mods/gravatar-4-smf" target="_blank">Gravatar 4 SMF</a> &copy; 2010-2020, digger';
     }
 }
