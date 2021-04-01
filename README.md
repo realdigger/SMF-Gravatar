@@ -23,14 +23,20 @@ Gravatars are globally recognised avatars. Basically, you upload your avatar to 
 How this mod works:
 If the "Enable gravatar" option is enabled, Gravatar will be used for all members who have not set an forum avatar. If a member have uploaded Gravatar at http://gravatar.com , it will be used. For any member who don't have own Gravatar, unique image will be generated a themed image that is unique to member's email address.  
 You can use this mod for setup custom default avatar.  
-Also you can force Gravatars to be used instead of regular avatars.
+Also you can force Gravatars to be used instead of regular avatars for all users.
+
+Supports Robohash avatar styles too.
 
 ![1](https://www.gravatar.com/avatar/00000000000000000000000000000000?d=mp&amp;f=y)
 ![2](https://www.gravatar.com/avatar/00000000000000000000000000000000?d=identicon&amp;f=y)
 ![3](https://www.gravatar.com/avatar/00000000000000000000000000000000?d=monsterid&amp;f=y)
 ![4](https://www.gravatar.com/avatar/00000000000000000000000000000000?d=wavatar&amp;f=y)
 ![5](https://www.gravatar.com/avatar/00000000000000000000000000000000?d=retro&amp;f=y)
-![6](https://www.gravatar.com/avatar/00000000000000000000000000000000?d=robohash&amp;f=y)
+![6](https://www.gravatar.com/avatar/00000000000000000000000000000000?d=robohash)
+![7](https://robohash.org/00000000000000000000000000000000?set=set2&size=80x80)
+![8](https://robohash.org/00000000000000000000000000000000?set=set3&size=80x80)
+![9](https://robohash.org/00000000000000000000000000000000?set=set4&size=80x80)
+![9](https://robohash.org/00000000000000000000000000000000?set=set5&size=80x80)
 
 ![gravatar1 en](https://cloud.githubusercontent.com/assets/1187218/26038566/80dcfca8-391c-11e7-9850-2d9c4657c775.png)
 
@@ -50,6 +56,8 @@ Also you can force Gravatars to be used instead of regular avatars.
 Если активирована опция "Включить граватары", Граватары будет использоваться для всех тех пользователей, кто не установил себе аватар на форуме. Если у пользователя есть загруженный на http://gravatar.com аватар, будет использоваться он. Для остальных пользователей, которые не имеют собственных Граватаров, будут сгенерированы уникальные изображения в соответствии с выбранным в настройках стилем.  
 Мод можно использовать для задания произвольного аватара по умолчанию.  
 Также, можно принудительно включить генерацию Граватаров для всех пользователей, независимо от того, есть у них аватары или нет.
+
+Так же, поддерживаются дополнительные стили аватаров Robohash.
 
 ![gravatar1 ru](https://cloud.githubusercontent.com/assets/1187218/26038568/80de9fa4-391c-11e7-95af-7c5f2880683c.png)
 
