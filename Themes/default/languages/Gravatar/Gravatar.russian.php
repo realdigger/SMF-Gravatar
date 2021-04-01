@@ -34,6 +34,10 @@ $txt['gravatar_style_monsterid'] = 'монстры';
 $txt['gravatar_style_retro'] = 'ретро';
 $txt['gravatar_style_mm'] = 'загадочный человек';
 $txt['gravatar_style_robohash'] = 'роботы';
+$txt['gravatar_style_robohash2'] = 'другие монстры';
+$txt['gravatar_style_robohash3'] = 'головы роботов';
+$txt['gravatar_style_robohash4'] = 'коты';
+$txt['gravatar_style_robohash5'] = 'человеки';
 $txt['gravatar_style_blank'] = 'пустой';
 $txt['gravatar_style_custom'] = 'свой';
 $txt['gravatar_style_help'] = '<br />Если у пользователя есть свой граватар на <a href="http://gravatar.com" target="_blank">gravatar.com</a>, то будет использован он. Для пользователей, которые не установили себе аватар, будут сгенерированы уникальные изображения в заданном стиле. Размер граватаров будет соответствовать настройкам форума для внешних аватаров.

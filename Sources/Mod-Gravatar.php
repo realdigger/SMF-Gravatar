@@ -41,17 +41,28 @@ function addGravatarAdminArea(&$admin_areas)
  */
 function loadGravatarAdminJS()
 {
-    global $context;
+    global $context, $modSettings;
+
+    $gravatarWidth  = !empty($modSettings['avatar_max_width_external']) ? $modSettings['avatar_max_width_external'] : 65;
+    $gravatarHeight = !empty($modSettings['avatar_max_height_external']) ? $modSettings['avatar_max_height_external'] : 65;
+    $gravatarSize   = $gravatarWidth < $gravatarHeight ? $gravatarWidth : $gravatarHeight;
 
     $context['insert_after_template'] .= "
                 <script type='text/javascript'><!-- // --><![CDATA[
                     function updateGravatar(){
-                    var gravatarType = document.getElementById('gravatar_style').value;
-                    if (gravatarType == 'custom') gravatarType = document.getElementById('gravatar_style_custom_url').value;
-                    document.getElementById('gravatar_example').src='http://gravatar.com/avatar/00000000000000000000000000000000?d=' + gravatarType + '&amp;s=65';
+                        var gravatarWidth = " . $gravatarWidth . ";
+                        var gravatarHeight = " . $gravatarHeight . ";
+                        var gravatarSize = " . $gravatarSize . ";
+                        var gravatarType = document.getElementById('gravatar_style').value;
+                                 
+                        if (gravatarType == 'robohash2' || gravatarType == 'robohash3' || gravatarType == 'robohash4' || gravatarType == 'robohash5') {
+                            document.getElementById('gravatar_example').src='https://robohash.org/d41d8cd98f00b204e9800998ecf8427e?set=set' + gravatarType.substring(8, 9) + '&amp;size=' + gravatarWidth + 'x' + gravatarHeight;
+                        } else {
+                            if (gravatarType == 'custom') gravatarType = document.getElementById('gravatar_style_custom_url').value;
+                            document.getElementById('gravatar_example').src='http://gravatar.com/avatar/d41d8cd98f00b204e9800998ecf8427e?d=' + gravatarType + '&amp;s=' + gravatarSize;
+                        }       
 		            };
                 // ]]></script>";
-
 }
 
 /**
@@ -74,8 +85,8 @@ function addGravatarAdminSettings($return_config = false)
     loadLanguage('Gravatar/Gravatar');
     loadGravatarAdminJS();
 
-    $context['page_title'] = $context['settings_title'] = $txt['gravatar_admin_menu'];
-    $context['post_url'] = $scripturl . '?action=admin;area=modsettings;save;sa=gravatar';
+    $context['page_title']       = $context['settings_title'] = $txt['gravatar_admin_menu'];
+    $context['post_url']         = $scripturl . '?action=admin;area=modsettings;save;sa=gravatar';
     $context['settings_message'] = $txt['gravatar_description'];
 
     $config_vars = array(
@@ -85,10 +96,10 @@ function addGravatarAdminSettings($return_config = false)
             'select',
             'gravatar_rating',
             array(
-                'g' => $txt['gravatar_rating_g'],
+                'g'  => $txt['gravatar_rating_g'],
                 'pg' => $txt['gravatar_rating_pg'],
-                'r' => $txt['gravatar_rating_r'],
-                'x' => $txt['gravatar_rating_x'],
+                'r'  => $txt['gravatar_rating_r'],
+                'x'  => $txt['gravatar_rating_x'],
             ),
             'subtext' => $txt['gravatar_rating_help'],
         ),
@@ -96,19 +107,22 @@ function addGravatarAdminSettings($return_config = false)
             'select',
             'gravatar_style',
             array(
-                'wavatar' => $txt['gravatar_style_wavatar'],
+                'wavatar'   => $txt['gravatar_style_wavatar'],
                 'identicon' => $txt['gravatar_style_identicon'],
                 'monsterid' => $txt['gravatar_style_monsterid'],
-                'retro' => $txt['gravatar_style_retro'],
-                'mm' => $txt['gravatar_style_mm'],
-                'robohash' => $txt['gravatar_style_robohash'],
-                'blank' => $txt['gravatar_style_blank'],
-                'custom' => $txt['gravatar_style_custom'],
+                'retro'     => $txt['gravatar_style_retro'],
+                'mm'        => $txt['gravatar_style_mm'],
+                'robohash'  => $txt['gravatar_style_robohash'],
+                'robohash2' => $txt['gravatar_style_robohash2'],
+                'robohash3' => $txt['gravatar_style_robohash3'],
+                'robohash4' => $txt['gravatar_style_robohash4'],
+                'robohash5' => $txt['gravatar_style_robohash5'],
+                'blank'     => $txt['gravatar_style_blank'],
+                'custom'    => $txt['gravatar_style_custom'],
             ),
-            'subtext' => $txt['gravatar_style_help'],
-            'postinput' => '<div style="margin-top: 3px;"><img id="gravatar_example" src="//gravatar.com/avatar/00000000000000000000000000000000?d=' .
-                (($modSettings['gravatar_style'] == 'custom' && !empty($modSettings['gravatar_style_custom_url'])) ? urlencode($modSettings['gravatar_style_custom_url']) : ((!empty($modSettings['gravatar_style']) && $modSettings['gravatar_style'] != 'custom') ? $modSettings['gravatar_style'] : ''))
-                . '&amp;s=65" alt="" /></div>',
+            'subtext'    => $txt['gravatar_style_help'],
+            'postinput'  => '<div style="margin-top: 3px;"><img id="gravatar_example" src="' . getGravatar(
+                ) . '" alt="" /></div>',
             'javascript' => 'onchange="updateGravatar()"',
         ),
         array('large_text', 'gravatar_style_custom_url', 'subtext' => $txt['gravatar_style_custom_url_help']),
@@ -131,7 +145,7 @@ function addGravatarAdminSettings($return_config = false)
 /**
  * Get gravatar by email
  * @param string $email
- * @param bool $image swe need img tag
+ * @param bool $image we need img tag
  * @return string gravatar link or image
  */
 function getGravatar($email = '', $image = false)
@@ -141,13 +155,27 @@ function getGravatar($email = '', $image = false)
     // We can enable https avatars only for SMF 2.0.14 and above.
     $forum_version_int = (int)str_replace('.', '', trim($smcFunc['substr']($forum_version, 3)));
 
-    $gravatarHash = md5(strtolower($email));
-    $gravatarStyle = ($modSettings['gravatar_style'] == 'custom' && !empty($modSettings['gravatar_style_custom_url'])) ? urlencode($modSettings['gravatar_style_custom_url']) : ((!empty($modSettings['gravatar_style']) && $modSettings['gravatar_style'] != 'custom') ? $modSettings['gravatar_style'] : '');
+    $gravatarHash   = md5(strtolower($email));
+    $gravatarStyle  = ($modSettings['gravatar_style'] == 'custom' && !empty($modSettings['gravatar_style_custom_url'])) ? urlencode(
+        $modSettings['gravatar_style_custom_url']
+    ) : ((!empty($modSettings['gravatar_style']) && $modSettings['gravatar_style'] != 'custom') ? $modSettings['gravatar_style'] : '');
     $gravatarRating = !empty($modSettings['gravatar_rating']) ? $modSettings['gravatar_rating'] : 'g';
-    $gravatarWidth = !empty($modSettings['avatar_max_width_external']) ? $modSettings['avatar_max_width_external'] : 65;
+    $gravatarWidth  = !empty($modSettings['avatar_max_width_external']) ? $modSettings['avatar_max_width_external'] : 65;
     $gravatarHeight = !empty($modSettings['avatar_max_height_external']) ? $modSettings['avatar_max_height_external'] : 65;
-    $gravatarSize = $gravatarWidth < $gravatarHeight ? $gravatarWidth : $gravatarHeight;
-    $gravatar = ($forum_version_int >= 2014 ? 'https' : 'http') . '://gravatar.com/avatar/' . $gravatarHash . '?d=' . $gravatarStyle . '&amp;s=' . $gravatarSize . '&amp;r=' . $gravatarRating;
+    $gravatarSize   = $gravatarWidth < $gravatarHeight ? $gravatarWidth : $gravatarHeight;
+
+    if ($modSettings['gravatar_style'] && $smcFunc['strlen']($modSettings['gravatar_style']) > 8 && $smcFunc['strpos'](
+            $modSettings['gravatar_style'],
+            'robohash'
+        ) === 0) {
+        $gravatar = ($forum_version_int >= 2014 ? 'https' : 'http') . '://robohash.org/' . $gravatarHash . '?set=set' . $smcFunc['substr'](
+                $modSettings['gravatar_style'],
+                8,
+                1
+            ) . '&amp;size=' . $gravatarWidth . 'x' . $gravatarHeight;
+    } else {
+        $gravatar = ($forum_version_int >= 2014 ? 'https' : 'http') . '://gravatar.com/avatar/' . $gravatarHash . '?d=' . $gravatarStyle . '&amp;s=' . $gravatarSize . '&amp;r=' . $gravatarRating;
+    }
 
     if ($image) {
         $gravatar = '<img class="avatar" src="' . $gravatar . '" alt="" />';
@@ -213,6 +241,6 @@ function addGravatarCopyright()
     global $context;
 
     if ($context['current_action'] == 'credits') {
-        $context['copyrights']['mods'][] = '<a href="https://mysmf.net/mods/gravatar-4-smf" target="_blank">Gravatar 4 SMF</a> &copy; 2010-2020, digger';
+        $context['copyrights']['mods'][] = '<a href="https://mysmf.net/mods/gravatar-4-smf" target="_blank">Gravatar 4 SMF</a> &copy; 2010-2021, digger';
     }
 }
