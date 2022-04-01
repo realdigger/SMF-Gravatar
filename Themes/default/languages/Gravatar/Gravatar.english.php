@@ -55,4 +55,5 @@ $txt['gravatar_style_custom_url_help'] = '
 <br />MUST be accessible via HTTP or HTTPS on the standard ports, 80 and 443, respectively.
 <br />MUST have a recognizable image extension (jpg, jpeg, gif, png).
 <br />MUST NOT include a querystring (if it does, it will be ignored).';
+$txt['multiavatar'] = 'multiavatar';
 
